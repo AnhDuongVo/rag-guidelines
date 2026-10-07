@@ -2,9 +2,15 @@
 
 **Retrieval-augmented generation over clinical guidelines and drug labels, with every answer verified against its cited source.** It retrieves the relevant passages, answers only from them, and then checks each sentence of the answer against the chunk it cites, flagging anything unsupported or any number that is not in the source. Built on a neutral, OpenAI-compatible stack (vLLM, Ollama, TGI, or any hosted API), with an offline mode that needs no key.
 
+## Demo
+
+![rag-guidelines demo](docs/demo.gif)
+
+Two questions answered from the bundled corpus, with the retrieved sources, their scores, and the per-sentence check. The video is on [anhduongvo.github.io](https://anhduongvo.github.io/projects/agentic-tooling/).
+
 ## Why
 
-In healthcare, a RAG answer is only as trustworthy as its weakest citation. A model can retrieve the right passage and still state a dose the passage never mentions. This project treats **verification as a first-class step**: after generation, every sentence is checked against the chunk it cites (content overlap and exact numbers), so an unsupported claim is caught rather than shipped.
+A model can retrieve the right guideline passage and still state a dose the passage does not mention. This project adds a verification step after generation: every sentence is checked against the chunk it cites (content overlap and exact numbers), and unsupported sentences are flagged.
 
 ## How it works
 
