@@ -4,11 +4,11 @@
 
 Demonstrates small-corpus retrieval with citation, lexical, polarity and numerical screening.
 
-## Watch the demo
+## CLI example
 
-![Demo](docs/demo.gif)
+![CLI input and output](docs/rag-guidelines.png)
 
-[Portfolio videos](https://anhduongvo.github.io/projects/agentic-tooling/). Clinical recordings use the separate simplified interactive demo.
+[Portfolio examples](https://anhduongvo.github.io/projects/agentic-tooling/). Clinical recordings use the separate simplified interactive demo.
 
 ## Try it offline
 
@@ -48,9 +48,7 @@ See [validation details](docs/validation.md). The architecture and detailed work
 
 ## Demo
 
-![rag-guidelines demo](docs/demo.gif)
-
-Two questions answered from the bundled corpus, with the retrieved sources, their scores, and the per-sentence check. The video is on [anhduongvo.github.io](https://anhduongvo.github.io/projects/agentic-tooling/).
+An HbA1c question is answered extractively from the synthetic corpus, with retrieved sources, scores and lexical/numerical screening. No live clinical LLM is evaluated. The command/output examples are on [anhduongvo.github.io](https://anhduongvo.github.io/projects/agentic-tooling/).
 
 ## Why
 
