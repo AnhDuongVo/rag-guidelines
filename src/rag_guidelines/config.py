@@ -16,4 +16,6 @@ class Settings:
     base_url: str = field(default_factory=lambda: os.getenv("RAG_BASE_URL", "http://localhost:8000/v1"))
     api_key: str | None = field(default_factory=lambda: os.getenv("RAG_API_KEY"))
     model: str = field(default_factory=lambda: os.getenv("RAG_MODEL", "local-model"))
-    offline: bool = field(default_factory=lambda: os.getenv("RAG_OFFLINE", "1").strip().lower() in {"1", "true", "yes", "on"})
+    offline: bool = field(
+        default_factory=lambda: os.getenv("RAG_OFFLINE", "1").strip().lower() in {"1", "true", "yes", "on"}
+    )

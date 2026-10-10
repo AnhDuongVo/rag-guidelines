@@ -37,8 +37,10 @@ def generate_live(question: str, chunks: list[tuple[Chunk, float]], settings: Se
     ctx = _context([c for c, _ in chunks])
     resp = client.chat.completions.create(
         model=s.model,
-        messages=[{"role": "system", "content": SYSTEM},
-                  {"role": "user", "content": f"Context:\n{ctx}\n\nQuestion: {question}"}],
+        messages=[
+            {"role": "system", "content": SYSTEM},
+            {"role": "user", "content": f"Context:\n{ctx}\n\nQuestion: {question}"},
+        ],
         temperature=0.1,
     )
     return resp.choices[0].message.content or ""

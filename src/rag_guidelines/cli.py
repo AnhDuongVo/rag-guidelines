@@ -16,7 +16,11 @@ console = Console()
 
 
 @app.command()
-def ask(question: str, k: int = typer.Option(3, help="chunks to retrieve"), live: bool = typer.Option(False, help="use the configured LLM endpoint instead of offline extractive")):
+def ask(
+    question: str,
+    k: int = typer.Option(3, help="chunks to retrieve"),
+    live: bool = typer.Option(False, help="use the configured LLM endpoint instead of offline extractive"),
+):
     """Answer a question from the guideline corpus and verify every citation."""
     settings = Settings()
     if live:
@@ -36,7 +40,9 @@ def ask(question: str, k: int = typer.Option(3, help="chunks to retrieve"), live
         mark = "[green]OK[/green]" if ch.supported else "[red]FLAG[/red]"
         console.print(f"  {mark} {ch.reason}: {ch.sentence}")
     s = summary(checks)
-    console.print(f"\n{s['supported']}/{s['sentences']} sentences supported.")
+    console.print(
+        f"\n{s['supported']}/{s['sentences']} sentences passed lexical/numerical screening; semantic review required."
+    )
 
 
 @app.command()
